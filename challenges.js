@@ -9,8 +9,10 @@ console.log(factorial(7)); // 5040
 ------------------*/
 
 function factorial(x) {
-  // base case
-  // recursive case
+  if(x === 0) { //base case
+    return 1;
+  }
+  return x * factorial(x-1)  // recursive case
 }
 
 /*------------------
@@ -25,10 +27,15 @@ console.log(createStars(5)); // "*****"
 console.log(createStars(0)); // ""
 ------------------*/
 
-function createStars(l) {
-  // base case
-  // recursive case
+
+function createStars(star, l) { //added in second parameter star
+ if(l === 0){
+  return "";
+ }
+ return star + createStars (star, l -1);
 }
+console.log(createStars('*', 5)); // "*****"
+console.log(createStars('*', 0)); // ""
 
 /*------------------
 3)
@@ -44,10 +51,15 @@ console.log(addUpTo(100)); // 5050 (1 + 2 + ... + 99 + 100)
 ------------------*/
 
 function addUpTo(n) {
-  // base case
-  // recursive case
+   if(n === 0) {   // base case
+    return 1;
+   }   
+    return n * factorial(n-1)   // recursive case
 }
-
+console.log(addUpTo(1)); // 1
+console.log(addUpTo(2)); // 3 (1 + 2)
+console.log(addUpTo(3)); // 6 (1 + 2 + 3)
+console.log(addUpTo(100)); // 5050 (1 + 2 + ... + 99 + 100)
 /*------------------
 4)
 Create a recursive function that
@@ -57,13 +69,22 @@ Hint: use the .pop() method to remove
 items from the array as you go.
 
 Test case:
-console.log(sum([1, 2, 3, 4, 5, 6])); // 21
+
 ------------------*/
 
 function sum(arr) {
-  // base case
-  // recursive case
-}
+  let array = [1, 2, 3, 4, 5, 6];
+  let nums = array.pop();
+  let newArr ="";
+ if(nums >= 0) {
+    return newArr += sum(nums);
+ }
+ 
+ }
+ console.log(sum([1, 2, 3, 4, 5, 6])); // 21
+
+ //maximum call stack size exceeded 
+
 
 /*------------------
 5)
